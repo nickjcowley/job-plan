@@ -1223,7 +1223,7 @@ tfoot td.r { text-align: right; }
         <div class="ctl-locked" id="wrh-count-disp">0 /cycle</div>
       </div>
       <div class="ctl-row">
-        <div class="ctl-label">Kidderminster sessions
+        <div class="ctl-label">Kiddi sessions
           <span class="ctl-sub" id="kid-add-sub">Set by session planner below</span>
         </div>
         <div class="ctl-locked" id="kid-count-disp">0 /cycle</div>
@@ -1329,7 +1329,7 @@ tfoot td.r { text-align: right; }
         <div class="pst-sub" id="pg-wrh-pa">0.000 PA/wk</div>
       </div>
       <div class="pg-sum-tile">
-        <div class="pst-label">Kidderminster sessions</div>
+        <div class="pst-label">Kiddi sessions</div>
         <div class="pst-val" id="pg-kid-count">0 <span style="font-size:13px;font-weight:400">/cycle</span></div>
         <div class="pst-sub" id="pg-kid-pa">0.000 PA/wk</div>
       </div>
@@ -1337,6 +1337,11 @@ tfoot td.r { text-align: right; }
         <div class="pst-label">New sessions total</div>
         <div class="pst-val" id="pg-total-count">0 <span style="font-size:13px;font-weight:400">/cycle</span></div>
         <div class="pst-sub" id="pg-total-pa">0.000 PA/wk added</div>
+      </div>
+      <div class="pg-sum-tile accent-left">
+        <div class="pst-label">Total PA/wk</div>
+        <div class="pst-val" id="pg-grand-total">0.000</div>
+        <div class="pst-sub">All components combined</div>
       </div>
     </div>
 
@@ -1514,6 +1519,8 @@ tfoot td.r { text-align: right; }
           '<span class="rb-verdict">' + band.verdict + '</span>' +
         '</div>' +
       '</div>';
+    var gtEl = document.getElementById('pg-grand-total');
+    if (gtEl) gtEl.textContent = f3(r.total) + ' PA/wk';
   }
 
   // Wire steppers

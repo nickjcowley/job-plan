@@ -1689,8 +1689,10 @@ tfoot td.r { text-align: right; }
     syncDOMToState();
     var icuWdEl = document.getElementById('ctl-icu-wd');
     var icuWeEl = document.getElementById('ctl-icu-we');
-    if (icuWdEl) icuWdEl.checked = true;
-    if (icuWeEl) icuWeEl.checked = true;
+    var paEl2 = document.getElementById('ctl-patient-admin');
+    if (icuWdEl) { icuWdEl.checked = true; icuWdEl.dispatchEvent(new Event('change', {bubbles:true})); }
+    if (icuWeEl) { icuWeEl.checked = true; icuWeEl.dispatchEvent(new Event('change', {bubbles:true})); }
+    if (paEl2) { paEl2.checked = true; paEl2.dispatchEvent(new Event('change', {bubbles:true})); }
     render();
   }
 

@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Job Plan Analysis — NJ Cowley</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a4a8c">
 <style>
 :root {
   --bg: #f3f5f9;
@@ -19,7 +21,7 @@
   --border: #cdd8e3;
   --border-strong: #b0bfce;
   --safe: #1a7a5e;
-  --safe-bg: #e4f4ed;
+  --safe-bg: #e4f4ed;h
   --warn: #b83228;
   --warn-bg: #fbe8e7;
   --neutral-bg: #edf0f6;
@@ -1822,5 +1824,6 @@ tfoot td.r { text-align: right; }
   updateSummary();
 })();
 </script>
+  <script>if('serviceWorker'in navigator){navigator.serviceWorker.register('/job-plan/sw.js');}</script></script>
 </body>
 </html>

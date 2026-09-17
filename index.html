@@ -1699,6 +1699,22 @@ tfoot td.r { text-align: right; }
     render();
   }
 
+  function setExistingICU() {
+    state.base = 'alex'; state.cpd = 2.00; state.govLead = 1.00;
+    state.extraSpa = 0.00; state.extraSpaName = '';
+    state.informatics = 1.50; state.onCalls = 2.00; state.patientAdmin = false;
+    state.icmForum = true; state.bankHoliday = false;
+    state.weSessions = 0; state.alexPerCycle = 0;
+    state.wrhPerCycle = 0; state.kidPerCycle = 0;
+    state.icuCommitment = true; state.icuWeekend = true;
+    syncDOMToState();
+    var icuWdEl = document.getElementById('ctl-icu-wd');
+    var icuWeEl = document.getElementById('ctl-icu-we');
+    if (icuWdEl) icuWdEl.checked = true;
+    if (icuWeEl) icuWeEl.checked = true;
+    render();
+  }
+
   // Reset button
   document.getElementById('btn-reset').addEventListener('click', resetToDefaults);
   document.getElementById('btn-existing-icu').addEventListener('click', setExistingICU);

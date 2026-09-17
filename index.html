@@ -408,6 +408,7 @@ tfoot td.r { text-align: right; }
   flex-wrap: wrap;
 }
 .ctl-row:last-child { border-bottom: none; }
+.ctl-row-shaded { background: rgba(0,0,0,0.04); }
 .ctl-label { font-size: 13px; color: var(--text); flex: 1 1 180px; }
 .ctl-sub { font-size: 11px; color: var(--text-2); display: block; margin-top: 2px; }
 .ctl-locked {
@@ -1097,8 +1098,8 @@ tfoot td.r { text-align: right; }
         </div>
         <div class="ctl-locked" id="fixed-dcc-val">2.583 PA/wk</div>
       </div>
-      <div class="ctl-row">
-        <div class="ctl-label">Patient administration
+      <div class="ctl-row ctl-row-shaded">
+        <div class="ctl-label">Patient administration (0.250 PA/wk)
           <span class="ctl-sub">Flexible DCC · 1 hour per attendance week · 0.250 PA/wk</span>
         </div>
         <label class="toggle-wrap">
@@ -1106,7 +1107,7 @@ tfoot td.r { text-align: right; }
           <span>Included</span>
         </label>
       </div>
-      <div class="ctl-row">
+      <div class="ctl-row ctl-row-shaded">
         <div class="ctl-label">Existing ICU commitment
           <span class="ctl-sub">Weekday ICU sessions · 18-week rolling roster · 1.4565 PA/wk</span>
         </div>
@@ -1115,7 +1116,7 @@ tfoot td.r { text-align: right; }
           <span>Included (1.457 PA/wk)</span>
         </label>
       </div>
-      <div class="ctl-row">
+      <div class="ctl-row ctl-row-shaded">
         <div class="ctl-label">Weekend ICU working
           <span class="ctl-sub">ICU 2 · Sat–Sun 07:30–13:00 whilst not on-call · 0.2514 PA/wk</span>
         </div>
@@ -1125,6 +1126,15 @@ tfoot td.r { text-align: right; }
         </label>
       </div>
       <div class="ctl-row">
+        <div class="ctl-label">ICM Forum ANR
+          <span class="ctl-sub">12 sessions/yr × 4 hrs = 0.286 PA/wk</span>
+        </div>
+        <label class="toggle-wrap">
+          <input type="checkbox" id="ctl-icm" checked>
+          <span>Included (0.286 PA/wk)</span>
+        </label>
+      </div>
+      <div class="ctl-row ctl-row-shaded">
         <div class="ctl-label">On calls
           <span class="ctl-sub">Predictable on-call DCC · set to 0 if not doing on calls</span>
         </div>
@@ -1174,15 +1184,6 @@ tfoot td.r { text-align: right; }
           <span class="sunit">PA/wk</span>
         </div>
       </div>
-      <div class="ctl-row">
-        <div class="ctl-label">ICM Forum ANR
-          <span class="ctl-sub">12 sessions/yr × 4 hrs = 0.286 PA/wk</span>
-        </div>
-        <label class="toggle-wrap">
-          <input type="checkbox" id="ctl-icm" checked>
-          <span>Included (0.286 PA/wk)</span>
-        </label>
-      </div>
     </div>
 
     <p class="sub">Flexible Weekend Days</p>
@@ -1226,6 +1227,12 @@ tfoot td.r { text-align: right; }
           <span class="ctl-sub" id="kid-add-sub">Set by session planner below</span>
         </div>
         <div class="ctl-locked" id="kid-count-disp">0 /cycle</div>
+      </div>
+      <div class="ctl-row">
+        <div class="ctl-label">Additional sessions
+          <span class="ctl-sub">PA/wk from session planner above</span>
+        </div>
+        <div class="ctl-locked" id="addl-pa-disp">0.000 PA/wk</div>
       </div>
     </div>
 
@@ -1775,6 +1782,8 @@ tfoot td.r { text-align: right; }
     if (alexDisp) alexDisp.textContent = alexCount + ' /cycle';
     if (wrhDisp)  wrhDisp.textContent  = wrhCount  + ' /cycle';
     if (kidDisp)  kidDisp.textContent  = kidCount  + ' /cycle';
+    var addlPaDisp = document.getElementById('addl-pa-disp');
+    if (addlPaDisp) addlPaDisp.textContent = totPA + ' PA/wk';
   }
 
   function wireCell(el) {

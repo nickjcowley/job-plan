@@ -1228,12 +1228,7 @@ tfoot td.r { text-align: right; }
         </div>
         <div class="ctl-locked" id="kid-count-disp">0 /cycle</div>
       </div>
-      <div class="ctl-row">
-        <div class="ctl-label">Additional sessions
-          <span class="ctl-sub">PA/wk from session planner above</span>
-        </div>
-        <div class="ctl-locked" id="addl-pa-disp">0.000 PA/wk</div>
-      </div>
+  
     </div>
 
     <p class="sub">Running total</p>
@@ -1241,6 +1236,7 @@ tfoot td.r { text-align: right; }
     <div class="calc-actions">
       <button id="btn-copy-link" class="calc-btn">Copy link</button>
       <button id="btn-reset" class="calc-btn calc-btn-ghost">Reset to defaults</button>
+      <button id="btn-existing-icu" class="calc-btn calc-btn-ghost">Existing ICU</button>
     </div>
 
   </div>
@@ -1687,8 +1683,25 @@ tfoot td.r { text-align: right; }
     }).catch(function () { prompt('Copy this link:', url); });
   });
 
+  function setExistingICU() {
+    state.base = 'alex'; state.cpd = 2.00; state.govLead = 1.00;
+    state.extraSpa = 0.00; state.extraSpaName = '';
+    state.informatics = 1.50; state.onCalls = 2.00; state.patientAdmin = false;
+    state.icmForum = true; state.bankHoliday = false;
+    state.weSessions = 0; state.alexPerCycle = 0;
+    state.wrhPerCycle = 0; state.kidPerCycle = 0;
+    state.icuCommitment = true; state.icuWeekend = true;
+    syncDOMToState();
+    var icuWdEl = document.getElementById('ctl-icu-wd');
+    var icuWeEl = document.getElementById('ctl-icu-we');
+    if (icuWdEl) icuWdEl.checked = true;
+    if (icuWeEl) icuWeEl.checked = true;
+    render();
+  }
+
   // Reset button
   document.getElementById('btn-reset').addEventListener('click', resetToDefaults);
+  document.getElementById('btn-existing-icu').addEventListener('click', setExistingICU);
 
   // Initial render
   render();
@@ -1794,8 +1807,6 @@ tfoot td.r { text-align: right; }
     if (alexDisp) alexDisp.textContent = alexCount + ' /cycle';
     if (wrhDisp)  wrhDisp.textContent  = wrhCount  + ' /cycle';
     if (kidDisp)  kidDisp.textContent  = kidCount  + ' /cycle';
-    var addlPaDisp = document.getElementById('addl-pa-disp');
-    if (addlPaDisp) addlPaDisp.textContent = totPA + ' PA/wk';
   }
 
   function wireCell(el) {

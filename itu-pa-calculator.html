@@ -6,7 +6,12 @@
 <title>ITU PA Calculator</title>
 <meta name="description" content="Generic interactive consultant PA calculator with adjustable cycle length and session planner.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap">
-<meta name="theme-color" content="#1a4a8c">
+<link rel="manifest" href="manifest-itu.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0d7070">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ITU PA">
 <style>
 :root {
   --bg: #f3f5f9;
@@ -1283,5 +1288,6 @@ tfoot td.r { text-align: right; }
   rebuildGrid(getCycle());
 })();
 </script>
+<script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/job-plan/sw.js');}</script>
 </body>
 </html>

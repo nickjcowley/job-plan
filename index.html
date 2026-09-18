@@ -450,6 +450,18 @@ tfoot td.r { text-align: right; }
   font-size: 14px;
   line-height: 1.5;
 }
+.stepper input.sval {
+  -moz-appearance: textfield;
+  width: 60px;
+  text-align: center;
+  outline: none;
+  cursor: text;
+}
+.stepper input.sval::-webkit-outer-spin-button,
+.stepper input.sval::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .stepper .sunit { font-size: 11px; color: var(--text-2); margin-left: 8px; white-space: nowrap; align-self: center; }
 .ctl-select {
   background: var(--surface);
@@ -1192,8 +1204,8 @@ tfoot td.r { text-align: right; }
         <div class="ctl-label">Premium weekend sessions (WRH)
           <span class="ctl-sub" id="we-sub">10 sessions/yr · 5 weekends · 1-in-10.4 rota · 0.873 PA/wk · ✓ meets 1-in-10 requirement</span>
         </div>
-        <div class="stepper" data-id="weSessions" data-val="10" data-step="1" data-min="0" data-max="52">
-          <button class="step-dn">−</button><span class="sval">10</span><button class="step-up">+</button>
+        <div class="stepper" data-id="weSessions" data-val="10.4" data-step="0.1" data-min="0" data-max="52">
+          <button class="step-dn">−</button><input type="number" class="sval" value="10.4" min="0" max="52" step="0.1"><button class="step-up">+</button>
           <span class="sunit">sessions/yr</span>
         </div>
       </div>
@@ -1371,7 +1383,7 @@ tfoot td.r { text-align: right; }
     patientAdmin: false,
     icmForum: true,
     bankHoliday: true,
-    weSessions: 10,
+    weSessions: 10.4,
     onCalls: 0.00,
     alexPerCycle: 0,
     wrhPerCycle: 0,
@@ -1531,7 +1543,9 @@ tfoot td.r { text-align: right; }
       v = Math.round(v / step) * step;
       v = Math.max(min, Math.min(max, v));
       el.dataset.val = v;
-      valEl.textContent = step < 1 ? v.toFixed(2) : v;
+      var dp = step < 1 ? (step < 0.05 ? 2 : 1) : 0;
+      var formatted = dp > 0 ? v.toFixed(dp) : String(v);
+      if (valEl.tagName === 'INPUT') { valEl.value = formatted; } else { valEl.textContent = formatted; }
       if      (id === 'cpd')           state.cpd          = v;
       else if (id === 'govLead')       state.govLead      = v;
       else if (id === 'extraSpa')      state.extraSpa     = v;
@@ -1545,6 +1559,10 @@ tfoot td.r { text-align: right; }
     }
     el.querySelector('.step-dn').addEventListener('click', function () { applyVal(parseFloat(el.dataset.val) - step); });
     el.querySelector('.step-up').addEventListener('click', function () { applyVal(parseFloat(el.dataset.val) + step); });
+    if (valEl.tagName === 'INPUT') {
+      valEl.addEventListener('change', function () { applyVal(parseFloat(this.value)); });
+      valEl.addEventListener('input', function () { applyVal(parseFloat(this.value)); });
+    }
   });
 
   // Extra SPA name input
@@ -1604,7 +1622,11 @@ tfoot td.r { text-align: right; }
       el.dataset.val = v;
       var sv = el.querySelector('.sval');
       var step = parseFloat(el.dataset.step);
-      if (sv) sv.textContent = step < 1 ? (+v).toFixed(2) : +v;
+      if (sv) {
+        var dp7 = step < 1 ? (step < 0.05 ? 2 : 1) : 0;
+        var fmt7 = dp7 > 0 ? (+v).toFixed(dp7) : String(+v);
+        if (sv.tagName === 'INPUT') { sv.value = fmt7; } else { sv.textContent = fmt7; }
+      }
     });
     var paEl = document.getElementById('ctl-patient-admin');
     var icEl = document.getElementById('ctl-icm');
@@ -1656,7 +1678,7 @@ tfoot td.r { text-align: right; }
     state.extraSpa = 0.00; state.extraSpaName = '';
     state.informatics = 1.50; state.onCalls = 0.00; state.patientAdmin = true;
     state.icmForum = true; state.bankHoliday = true;
-    state.weSessions = 10; state.alexPerCycle = 0;
+    state.weSessions = 10.4; state.alexPerCycle = 0;
     state.wrhPerCycle = 0; state.kidPerCycle = 0;
     state.icuCommitment = false; state.icuWeekend = false;
     syncDOMToState();

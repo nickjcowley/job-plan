@@ -21,7 +21,7 @@
   --border: #cdd8e3;
   --border-strong: #b0bfce;
   --safe: #1a7a5e;
-  --safe-bg: #e4f4ed;h
+  --safe-bg: #e4f4ed;
   --warn: #b83228;
   --warn-bg: #fbe8e7;
   --neutral-bg: #edf0f6;
@@ -641,6 +641,11 @@ tfoot td.r { text-align: right; }
 :root[data-theme="dark"] .pg-alex-new  { border-color: #e06080; }
 :root[data-theme="dark"] .pg-wrh-new   { border-color: #4090d0; }
 .pg-kid-new { background: #d4edda; color: #1a5c2a; border: 2px dashed #2a8a40; cursor: pointer; }
+.pg-kid-fixed { background: #d4edda; color: #1a5c2a; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pg-kid-fixed { background: #0a2510; color: #70c080; }
+}
+:root[data-theme="dark"] .pg-kid-fixed { background: #0a2510; color: #70c080; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .pg-kid-new { background: #0a2510; color: #70c080; border-color: #40a060; }
 }
@@ -721,10 +726,10 @@ tfoot td.r { text-align: right; }
   <!-- Header -->
   <div class="doc-head">
     <div class="doc-eyebrow">Worcestershire Acute Hospitals NHS Trust</div>
-    <h1>Consultant Job Plan Analysis<br>Transition from Anaesthesia / ITU to Full Anaesthesia</h1>
+    <h1>Consultant Job Plan Analysis<br>Full Anaesthesia — Agreed Core Sessions</h1>
     <div class="doc-meta">
       <span>N.J. Cowley</span>
-      <span>September 2026</span>
+      <span>Updated October 2026 (post-review)</span>
       <span>6-week cycle · 42 weeks attendance</span>
     </div>
   </div>
@@ -733,18 +738,18 @@ tfoot td.r { text-align: right; }
   <div class="sec">
     <div class="sec-header">
       <span class="sec-num">01</span>
-      <h2>Current Job Plan Summary</h2>
+      <h2>Job Plan Summary — post-review (eJobPlan, in development)</h2>
     </div>
 
     <div class="metrics">
       <div class="metric accent-left">
         <div class="m-label">Total PAs</div>
-        <div class="m-val">11.3268</div>
+        <div class="m-val">10.1559</div>
         <div class="m-sub">per week (42-wk avg)</div>
       </div>
       <div class="metric">
         <div class="m-label">DCC</div>
-        <div class="m-val">6.5411</div>
+        <div class="m-val">5.3702</div>
         <div class="m-sub">Direct Clinical Care</div>
       </div>
       <div class="metric">
@@ -759,7 +764,7 @@ tfoot td.r { text-align: right; }
       </div>
     </div>
 
-    <p class="sub">DCC — Anaesthesia (retained) · 6-week cycle</p>
+    <p class="sub">DCC — Core anaesthesia sessions · 6-week cycle</p>
     <div class="tbl-wrap">
       <table>
         <thead>
@@ -772,75 +777,52 @@ tfoot td.r { text-align: right; }
           </tr>
         </thead>
         <tbody>
-          <tr style="background:var(--accent-light,rgba(13,112,112,0.07))">
-            <td class="bold">Week 1</td>
-            <td class="muted">—</td>
-            <td class="bold">Empty (post-ICU week)</td>
-            <td class="muted">—</td>
-            <td class="r muted">0</td>
-          </tr>
-          <tr>
-            <td rowspan="2">Week 2</td>
-            <td>Tue</td>
-            <td>Theatre 7 Upper GI</td>
-            <td>Alexandra, Redditch</td>
-            <td class="r">2.50</td>
-          </tr>
-          <tr>
-            <td>Wed</td>
-            <td>Trauma</td>
-            <td>Worcester Royal</td>
-            <td class="r">2.75</td>
-          </tr>
-          <tr>
-            <td>Week 3</td>
-            <td>Mon</td>
-            <td>Theatre 8, C Pod 2</td>
-            <td>Worcester Royal</td>
-            <td class="r">2.75</td>
-          </tr>
-          <tr>
-            <td rowspan="2">Week 4</td>
-            <td>Tue</td>
-            <td>Theatre 7 Upper GI</td>
-            <td>Alexandra, Redditch</td>
-            <td class="r">2.50</td>
-          </tr>
-          <tr>
-            <td>Thu</td>
-            <td>Theatre 2 General Surgery</td>
-            <td>Alexandra, Redditch</td>
-            <td class="r">2.50</td>
-          </tr>
-          <tr>
-            <td>Week 5</td>
-            <td>Thu</td>
-            <td>Theatre 2 General Surgery</td>
-            <td>Alexandra, Redditch</td>
-            <td class="r">2.50</td>
-          </tr>
-          <tr style="background:rgba(180,60,60,0.06)">
-            <td class="bold">Week 6</td>
-            <td class="rm">Mon–Fri</td>
-            <td class="rm">ICU block (to be removed)</td>
-            <td class="rm">WRH / both</td>
-            <td class="r rm">0 anaes.</td>
-          </tr>
+          <tr><td>Week 1</td><td>Thu</td><td>Theatre – Breast</td><td>Kidderminster TC</td><td class="r">2.75</td></tr>
+          <tr><td rowspan="2">Week 2</td><td>Tue</td><td>Theatre – General Surgery</td><td>Alexandra, Redditch</td><td class="r">2.50</td></tr>
+          <tr><td>Wed</td><td>Theatre – WRH</td><td>Worcester Royal</td><td class="r">2.75</td></tr>
+          <tr><td rowspan="2">Week 3</td><td>Mon</td><td>Theatre – WRH</td><td>Worcester Royal</td><td class="r">2.75</td></tr>
+          <tr><td>Thu</td><td>Theatre – Breast</td><td>Kidderminster TC</td><td class="r">2.75</td></tr>
+          <tr><td rowspan="3">Week 4</td><td>Mon</td><td>Theatre – Emergency / CEPOD</td><td>Worcester Royal</td><td class="r">2.75</td></tr>
+          <tr><td>Tue</td><td>Theatre – General Surgery</td><td>Alexandra, Redditch</td><td class="r">2.50</td></tr>
+          <tr><td>Thu</td><td>Theatre – ALX</td><td>Alexandra, Redditch</td><td class="r">2.50</td></tr>
+          <tr><td>Week 5</td><td>Thu</td><td>Theatre – ALX</td><td>Alexandra, Redditch</td><td class="r">2.50</td></tr>
+          <tr><td>Week 6</td><td>Tue</td><td>Theatre – Urology</td><td>Alexandra, Redditch</td><td class="r">2.50</td></tr>
         </tbody>
         <tfoot>
           <tr>
-            <td>Anaesthesia DCC total</td>
-            <td colspan="3">15.50 PAs/cycle ÷ 6 weeks</td>
-            <td class="r bold">2.5833 PA/wk</td>
+            <td>Weekday core DCC</td>
+            <td colspan="3">10 sessions · 26.25 PAs/cycle ÷ 6 weeks</td>
+            <td class="r bold">4.3750 PA/wk</td>
           </tr>
         </tfoot>
       </table>
     </div>
+
+    <p class="sub">DCC — Weekend &amp; bank holiday trauma (WRH, premium)</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Activity</th><th>Day</th><th>Sessions/yr</th><th class="r">PA/wk</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Theatre – Trauma</td><td>Saturday</td><td>5.20</td><td class="r">0.4540</td></tr>
+          <tr><td>Theatre – Trauma</td><td>Sunday</td><td>5.20</td><td class="r">0.4540</td></tr>
+          <tr><td>Theatre – Trauma (additional, bank holiday)</td><td>Sunday</td><td>1.00</td><td class="r">0.0873</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td>Weekend / BH total</td><td colspan="2">11.4 sessions × 3.67 PA ÷ 42 wks</td><td class="r">0.9953</td></tr>
+        </tfoot>
+      </table>
+    </div>
     <div class="note safe">
-      <strong>Reconciliation check.</strong> 2.5833 PA/wk matches the eJobPlan anaesthesia DCC figure of 2.5832 PA/wk ✓. Alexandra sessions (Theatre 7 Upper GI ×2, Theatre 2 General Surgery ×2) = 4 × 2.50 = 10.00 PAs/cycle. WRH sessions (Trauma, Theatre 8 C Pod 2) = 2 × 2.75 = 5.50 PAs/cycle. Total 15.50 ÷ 6 = 2.5833.
+      <strong>Reconciliation check.</strong> Alexandra 5 × 2.50 = 12.50; Worcester Royal 3 × 2.75 = 8.25; Kidderminster 2 × 2.75 = 5.50 (07:30–18:30 + 1 hr travel). Total 26.25 ÷ 6 = 4.3750 PA/wk, matching eJobPlan's timetabled weekday total of 4.3749 ✓. Adding weekend/BH trauma (0.9953) gives DCC 5.3702, and with SPA 3.0000 + ANR 1.7857 the plan totals <strong>10.1559 PA/wk</strong> — rounds to 10.25.
     </div>
 
-    <p class="sub">DCC — Intensive Care (to be removed)</p>
+    <div class="note">
+      <strong>Changes at review.</strong> ICU weekday block, ICU 2 weekends and the on-call rota/supplement are no longer in the plan, and the flexible patient-administration DCC hour (0.25 PA) has been dropped. Weeks 1, 5 and 6 now each carry one session.
+    </div>
+
+    <p class="sub">DCC — Intensive Care (removed at review)</p>
     <div class="tbl-wrap">
       <table>
         <thead>
@@ -878,12 +860,12 @@ tfoot td.r { text-align: right; }
           </tr>
         </tbody>
         <tfoot>
-          <tr><td class="rm">ICU / on-call total to be removed</td><td colspan="2"></td><td class="r rm">3.7079</td></tr>
+          <tr><td class="rm">ICU / on-call total removed</td><td colspan="2"></td><td class="r rm">3.7079</td></tr>
         </tfoot>
       </table>
     </div>
 
-    <p class="sub">Flexible &amp; Management (retained)</p>
+    <p class="sub">Flexible activities</p>
     <div class="tbl-wrap">
       <table>
         <thead>
@@ -899,10 +881,10 @@ tfoot td.r { text-align: right; }
           <tr><td>Governance Lead</td><td>SPA</td><td>42 × 4 hrs</td><td class="r">1.0000</td></tr>
           <tr><td>Informatics Lead</td><td>ANR</td><td>42 × 6 hrs</td><td class="r">1.5000</td></tr>
           <tr><td>Anaes / ICM Forum</td><td>ANR</td><td>12 × 4 hrs</td><td class="r">0.2857</td></tr>
-          <tr><td>Patient administration</td><td>DCC</td><td>42 × 1 hr</td><td class="r">0.2500</td></tr>
+          <tr><td class="rm">Patient administration (removed)</td><td class="rm">DCC</td><td class="rm">42 × 1 hr</td><td class="r rm">0</td></tr>
         </tbody>
         <tfoot>
-          <tr><td>Flexible subtotal</td><td colspan="2"></td><td class="r">5.0357</td></tr>
+          <tr><td>Flexible subtotal</td><td colspan="2"></td><td class="r">4.7857</td></tr>
         </tfoot>
       </table>
     </div>
@@ -933,14 +915,14 @@ tfoot td.r { text-align: right; }
             <td class="r bold">2.50</td>
           </tr>
           <tr>
-            <td>Weekday — Worcester Royal (07:30–18:30)</td>
+            <td>Weekday — Worcester Royal / Kidderminster (07:30–18:30)</td>
             <td>10 hrs</td>
             <td>Normal · 4 hrs/PA</td>
             <td>+1 hr (normal rate)</td>
             <td class="r bold">2.75</td>
           </tr>
           <tr>
-            <td>Weekend — Worcester Royal (08:00–18:00)</td>
+            <td>Weekend — Worcester Royal trauma</td>
             <td>10 hrs</td>
             <td>Premium · 3 hrs/PA</td>
             <td>+1 hr (premium rate)</td>
@@ -1000,21 +982,21 @@ tfoot td.r { text-align: right; }
           <div class="scard-pa">7.33</div>
           <div class="scard-pa-lbl">PAs per weekend (Sat + Sun)</div>
           <dl class="scard-dl">
-            <dt>Sessions/yr</dt><dd>10 (contract-specified)</dd>
-            <dt>Weekends/yr</dt><dd>5</dd>
-            <dt>PAs/yr</dt><dd>10 × 3.67 = 36.67</dd>
-            <dt>PA/wk (÷ 42)</dt><dd><strong>0.873</strong></dd>
+            <dt>Sessions/yr</dt><dd>10.4 (5.2 Sat + 5.2 Sun)</dd>
+            <dt>Weekends/yr</dt><dd>5.2</dd>
+            <dt>PAs/yr</dt><dd>10.4 × 3.67 = 38.13</dd>
+            <dt>PA/wk (÷ 42)</dt><dd><strong>0.908</strong></dd>
           </dl>
         </div>
       </div>
     </div>
 
     <div class="note">
-      The weekend rota PA calculation is unaffected by the leave system. The contract specifies 10 sessions per year (5 weekends); the 42-week attendance figure divides the resulting annual PAs to give the weekly average — consistent with all timetabled anaesthetic sessions.
+      The weekend rota PA calculation is unaffected by the leave system. The agreed plan has 10.4 sessions per year (5.2 Saturdays + 5.2 Sundays), plus one additional Sunday/bank-holiday trauma session; the 42-week attendance figure divides the resulting annual PAs to give the weekly average — consistent with all timetabled anaesthetic sessions.
     </div>
 
     <div class="note" style="margin-top:0.75rem;">
-      <strong>Leave system difference — note for session placement.</strong> The ICU rota used annualised leave; anaesthetics uses standard NHS leave taken in blocked weeks (encouraged, not mandated). A week with only one session uses a full week of annual leave entitlement to avoid that session — proportionally poor value compared with a week carrying three or four sessions. Loading the additional sessions into weeks 1 and 6 (currently the two sparse weeks) makes them denser and therefore more worthwhile to take as leave.
+      <strong>Annual leave.</strong> Leave is annualised in anaesthetics, as it was on ICU, so it can be booked against individual sessions, including single days. A week with only one session costs one session of leave, not a full week.
     </div>
   </div>
 
@@ -1057,29 +1039,27 @@ tfoot td.r { text-align: right; }
       <strong>Key constraint.</strong> The plan must not produce a calculated total between 10.001 and 10.124 PAs. In that band the work exceeds the 10 PA contracted rate but rounds down to 10.00, resulting in unpaid clinical sessions.
     </div>
 
-    <div class="note warn" style="margin-bottom:1.5rem;">
-      <strong>Transition period — ICU rota continues for 6–12 months.</strong> The ITU governance and informatics roles will run for at least another year, and the ICU annualised rota will remain in place during that time. This means the job plan during the transition period will carry <em>both</em> the residual ICU annualised sessions and the new anaesthetics timetable simultaneously. The total PA during transition will therefore differ from the steady-state plan below, and a formally agreed phased arrangement should be documented at the job planning meeting to avoid ambiguity about expectations during the overlap.
+    <div class="note safe" style="margin-bottom:1.5rem;">
+      <strong>Agreed plan outcome.</strong> The post-review plan totals 10.1559 PA/wk, which sits in the 10.125–10.374 band and rounds cleanly to <strong>10.25 PA</strong> — clear of the 10.001–10.124 unpaid zone.
     </div>
 
-    <p class="sub">Steady-state proposed plan (post-ICU rota exit)</p>
+    <p class="sub">Agreed plan (post-review, October 2026)</p>
     <div class="tbl-wrap">
       <table>
         <thead>
           <tr><th>Component</th><th>Basis</th><th class="r">PA/wk</th></tr>
         </thead>
         <tbody>
-          <tr class="group-head"><td colspan="3">Retained from current plan</td></tr>
-          <tr><td>Anaesthesia theatre (Mon/Tue/Wed/Thu)</td><td>Existing sessions unchanged</td><td class="r">2.5832</td></tr>
-          <tr><td>? Patient administration</td><td>Flexible DCC</td><td class="r">0.2500</td></tr>
+          <tr class="group-head"><td colspan="3">Direct clinical care</td></tr>
+          <tr><td>Core weekday theatre (5 Alex · 3 WRH · 2 Kidderminster)</td><td>26.25 PAs ÷ 6-week cycle</td><td class="r">4.3750</td></tr>
+          <tr><td>Weekend trauma rota (WRH, Sat + Sun)</td><td>10.4 sessions/yr × 3.67 PA ÷ 42</td><td class="r">0.9079</td></tr>
+          <tr><td>Additional Sunday / bank-holiday trauma</td><td>1 session/yr × 3.67 PA ÷ 42</td><td class="r">0.0873</td></tr>
+          <tr class="group-head"><td colspan="3">Supporting &amp; additional</td></tr>
           <tr><td>CPD + Governance Lead</td><td>SPA · flexible</td><td class="r">3.0000</td></tr>
           <tr><td>Informatics Lead + ICM Forum</td><td>ANR · flexible</td><td class="r">1.7857</td></tr>
-          <tr class="group-head"><td colspan="3">New sessions</td></tr>
-          <tr><td>1-in-10 weekend rota (WRH, both days)</td><td>5.2 weekends/yr × 2 × 3.67 PAs ÷ 42</td><td class="r">0.9079</td></tr>
-          <tr><td>Bank holiday cover (1-in-20 trauma rota)</td><td>8 BH/yr × 3.67 PA ÷ 20 consultants ÷ 42 wks</td><td class="r">0.0349</td></tr>
-          <tr><td>Additional theatre sessions (see §04)</td><td>Depends on contract level and site — range 1.250–1.833 PA/wk</td><td class="r muted">TBC</td></tr>
         </tbody>
         <tfoot>
-          <tr><td class="bold">Baseline (no additional sessions) · 1-in-10 wkd · 1-in-20 BH</td><td></td><td class="r bold">8.5619</td></tr>
+          <tr><td class="bold">Total · rounds to 10.25 PA</td><td></td><td class="r bold">10.1559</td></tr>
         </tfoot>
       </table>
     </div>
@@ -1105,10 +1085,10 @@ tfoot td.r { text-align: right; }
     <p class="sub">Fixed components</p>
     <div class="ctl-blk">
       <div class="ctl-row">
-        <div class="ctl-label">Existing anaesthesia DCC
-          <span class="ctl-sub" id="fixed-dcc-sub">4 Alex + 2 WRH per cycle · 4×2.50 + 2×2.75 = 15.50 PAs ÷ 6 weeks</span>
+        <div class="ctl-label">Core anaesthesia DCC (agreed)
+          <span class="ctl-sub" id="fixed-dcc-sub">5 Alex + 3 WRH + 2 Kid per cycle = 26.25 PAs ÷ 6 weeks</span>
         </div>
-        <div class="ctl-locked" id="fixed-dcc-val">2.583 PA/wk</div>
+        <div class="ctl-locked" id="fixed-dcc-val">4.375 PA/wk</div>
       </div>
       <div class="ctl-row ctl-row-shaded">
         <div class="ctl-label">Patient administration (0.250 PA/wk)
@@ -1202,7 +1182,7 @@ tfoot td.r { text-align: right; }
     <div class="ctl-blk">
       <div class="ctl-row">
         <div class="ctl-label">Premium weekend sessions (WRH)
-          <span class="ctl-sub" id="we-sub">10 sessions/yr · 5 weekends · 1-in-10.4 rota · 0.873 PA/wk · ✓ meets 1-in-10 requirement</span>
+          <span class="ctl-sub" id="we-sub">10.4 sessions/yr · 5.2 weekends · 1-in-10 rota · 0.908 PA/wk · ✓ meets 1-in-10 requirement</span>
         </div>
         <div class="stepper" data-id="weSessions" data-val="10.4" data-step="0.1" data-min="0" data-max="52">
           <button class="step-dn">−</button><input type="number" class="sval" value="10.4" min="0" max="52" step="0.1"><button class="step-up">+</button>
@@ -1211,11 +1191,11 @@ tfoot td.r { text-align: right; }
       </div>
       <div class="ctl-row">
         <div class="ctl-label">Bank holiday cover
-          <span class="ctl-sub">1-in-20 trauma rota · 8 UK bank holidays · WRH premium rate (3.67 PA/session)</span>
+          <span class="ctl-sub">Additional Sunday trauma · 1 session/yr · WRH premium rate (3.67 PA/session)</span>
         </div>
         <label class="toggle-wrap">
           <input type="checkbox" id="ctl-bh" checked>
-          <span>Included (0.035 PA/wk)</span>
+          <span>Included (0.087 PA/wk)</span>
         </label>
       </div>
     </div>
@@ -1247,7 +1227,7 @@ tfoot td.r { text-align: right; }
     <div id="calc-result-box"></div>
     <div class="calc-actions">
       <button id="btn-copy-link" class="calc-btn">Copy link</button>
-      <button id="btn-reset" class="calc-btn calc-btn-ghost">Reset to defaults</button>
+      <button id="btn-reset" class="calc-btn calc-btn-ghost">Reset to agreed plan</button>
       <button id="btn-existing-icu" class="calc-btn calc-btn-ghost">Existing ICU</button>
     </div>
 
@@ -1265,9 +1245,10 @@ tfoot td.r { text-align: right; }
     <div class="pg-legend">
       <span class="pg-legend-item"><span class="pg-swatch alex"></span>Alexandra (existing)</span>
       <span class="pg-legend-item"><span class="pg-swatch wrh"></span>Worcester (existing)</span>
+      <span class="pg-legend-item"><span class="pg-swatch kid"></span>Kidderminster (existing)</span>
       <span class="pg-legend-item"><span class="pg-swatch alex new"></span>Alexandra (proposed)</span>
       <span class="pg-legend-item"><span class="pg-swatch wrh new"></span>Worcester (proposed)</span>
-      <span class="pg-legend-item"><span class="pg-swatch kid"></span>Kidderminster (proposed)</span>
+      <span class="pg-legend-item"><span class="pg-swatch kid new"></span>Kidderminster (proposed)</span>
       <span class="pg-legend-item"><span class="pg-swatch avail"></span>Available</span>
     </div>
 
@@ -1285,40 +1266,40 @@ tfoot td.r { text-align: right; }
         <div class="pg-cell pg-available" data-key="w1-mon">+</div>
         <div class="pg-cell pg-available" data-key="w1-tue">+</div>
         <div class="pg-cell pg-available" data-key="w1-wed">+</div>
-        <div class="pg-cell pg-available" data-key="w1-thu">+</div>
+        <div class="pg-cell pg-kid-fixed"><span class="pg-name">Breast</span><span class="pg-site">Kidderminster</span></div>
         <div class="pg-cell pg-available" data-key="w1-fri">+</div>
         <!-- Week 2 -->
         <div class="pg-week-label">Wk 2</div>
         <div class="pg-cell pg-available" data-key="w2-mon">+</div>
-        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Th. 7 Upper GI</span><span class="pg-site">Alexandra</span></div>
-        <div class="pg-cell pg-wrh-fixed"><span class="pg-name">Trauma</span><span class="pg-site">Worcester</span></div>
+        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Gen Surg</span><span class="pg-site">Alexandra</span></div>
+        <div class="pg-cell pg-wrh-fixed"><span class="pg-name">Theatre WRH</span><span class="pg-site">Worcester</span></div>
         <div class="pg-cell pg-available" data-key="w2-thu">+</div>
         <div class="pg-cell pg-available" data-key="w2-fri">+</div>
         <!-- Week 3 -->
         <div class="pg-week-label">Wk 3</div>
-        <div class="pg-cell pg-wrh-fixed"><span class="pg-name">Th. 8, C Pod 2</span><span class="pg-site">Worcester</span></div>
+        <div class="pg-cell pg-wrh-fixed"><span class="pg-name">Theatre WRH</span><span class="pg-site">Worcester</span></div>
         <div class="pg-cell pg-available" data-key="w3-tue">+</div>
         <div class="pg-cell pg-available" data-key="w3-wed">+</div>
-        <div class="pg-cell pg-available" data-key="w3-thu">+</div>
+        <div class="pg-cell pg-kid-fixed"><span class="pg-name">Breast</span><span class="pg-site">Kidderminster</span></div>
         <div class="pg-cell pg-available" data-key="w3-fri">+</div>
         <!-- Week 4 -->
         <div class="pg-week-label">Wk 4</div>
-        <div class="pg-cell pg-available" data-key="w4-mon">+</div>
-        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Th. 7 Upper GI</span><span class="pg-site">Alexandra</span></div>
+        <div class="pg-cell pg-wrh-fixed"><span class="pg-name">Emerg / CEPOD</span><span class="pg-site">Worcester</span></div>
+        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Gen Surg</span><span class="pg-site">Alexandra</span></div>
         <div class="pg-cell pg-available" data-key="w4-wed">+</div>
-        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Th. 2 Gen Surg</span><span class="pg-site">Alexandra</span></div>
+        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Theatre ALX</span><span class="pg-site">Alexandra</span></div>
         <div class="pg-cell pg-available" data-key="w4-fri">+</div>
         <!-- Week 5 -->
         <div class="pg-week-label">Wk 5</div>
         <div class="pg-cell pg-available" data-key="w5-mon">+</div>
         <div class="pg-cell pg-available" data-key="w5-tue">+</div>
         <div class="pg-cell pg-available" data-key="w5-wed">+</div>
-        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Th. 2 Gen Surg</span><span class="pg-site">Alexandra</span></div>
+        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Theatre ALX</span><span class="pg-site">Alexandra</span></div>
         <div class="pg-cell pg-available" data-key="w5-fri">+</div>
         <!-- Week 6 -->
         <div class="pg-week-label">Wk 6</div>
         <div class="pg-cell pg-available" data-key="w6-mon">+</div>
-        <div class="pg-cell pg-available" data-key="w6-tue">+</div>
+        <div class="pg-cell pg-alex-fixed"><span class="pg-name">Urology</span><span class="pg-site">Alexandra</span></div>
         <div class="pg-cell pg-available" data-key="w6-wed">+</div>
         <div class="pg-cell pg-available" data-key="w6-thu">+</div>
         <div class="pg-cell pg-available" data-key="w6-fri">+</div>
@@ -1365,11 +1346,12 @@ tfoot td.r { text-align: right; }
   var CYCLE     = 6;
   var FIXED_ADMIN = 0.25;
   var ICM_PA    = (12 * 4) / (WEEKS_ATT * 4);  // 0.2857
-  var BH_PA = 8 * WRH_WE_PA / (20 * WEEKS_ATT);
+  var BH_PA = 1 * WRH_WE_PA / WEEKS_ATT;   // 1 additional Sunday/BH trauma session per year (0.0873)
 
-  // Fixed existing sessions: 4 Alex + 2 WRH per cycle
-  var FIXED_ALEX = 4;
-  var FIXED_WRH  = 2;
+  // Agreed core sessions (Oct 2026 review): 5 Alex + 3 WRH + 2 Kidderminster per cycle
+  var FIXED_ALEX = 5;
+  var FIXED_WRH  = 3;
+  var FIXED_KID  = 2;
     var ICU_WD_PA = 1.4565;   // Weekday ICU commitment (18-week rolling roster)
     var ICU_WE_PA = 0.2514;   // Weekend ICU 2 (Sat–Sun 07:30–13:00, not on-call)
 
@@ -1396,7 +1378,7 @@ tfoot td.r { text-align: right; }
   function wdPA(h) { return h === state.base ? 2.50 : 2.75; }
 
   function fixedAnaesPA() {
-    return (FIXED_ALEX * wdPA('alex') + FIXED_WRH * wdPA('wrh')) / CYCLE;
+    return (FIXED_ALEX * wdPA('alex') + FIXED_WRH * wdPA('wrh') + FIXED_KID * wdPA('kid')) / CYCLE;
   }
 
   function roundQ(n) { return Math.round(n * 4) / 4; }
@@ -1441,11 +1423,12 @@ tfoot td.r { text-align: right; }
   }
 
   function updateDccRow() {
-    var alexRate = wdPA('alex'), wrhRate = wdPA('wrh');
-    var total = (FIXED_ALEX * alexRate + FIXED_WRH * wrhRate);
+    var alexRate = wdPA('alex'), wrhRate = wdPA('wrh'), kidRate = wdPA('kid');
+    var total = (FIXED_ALEX * alexRate + FIXED_WRH * wrhRate + FIXED_KID * kidRate);
     var perWk  = (total / CYCLE).toFixed(3);
     var sub = FIXED_ALEX + ' Alex (' + alexRate.toFixed(2) + ' PA) + ' +
-              FIXED_WRH  + ' WRH ('  + wrhRate.toFixed(2)  + ' PA) = ' +
+              FIXED_WRH  + ' WRH ('  + wrhRate.toFixed(2)  + ' PA) + ' +
+              FIXED_KID  + ' Kid ('  + kidRate.toFixed(2)  + ' PA) = ' +
               total.toFixed(2) + ' PAs ÷ 6 weeks';
     var valEl = document.getElementById('fixed-dcc-val');
     var subEl = document.getElementById('fixed-dcc-sub');
@@ -1473,7 +1456,7 @@ tfoot td.r { text-align: right; }
     var r    = compute();
     var band = bandInfo(r.total);
 
-    var rows = [['Existing anaesthesia DCC', f3(r.fixedAnaes)]];
+    var rows = [['Core anaesthesia DCC', f3(r.fixedAnaes)]];
     if (state.patientAdmin) rows.push(['Patient administration', f3(FIXED_ADMIN)]);
     if (r.icuWd)   rows.push(['Existing ICU commitment', f3(r.icuWd)]);
     if (r.icuWe)   rows.push(['Weekend ICU (ICU 2)', f3(r.icuWe)]);
@@ -1485,7 +1468,7 @@ tfoot td.r { text-align: right; }
     }
     rows.push(['Informatics Lead ANR', f3(r.info)]);
     if (state.icmForum) rows.push(['ICM Forum ANR', f3(r.icm)]);
-    if (state.bankHoliday) rows.push(['Bank holiday cover (1-in-20 trauma)', f3(r.bh)]);
+    if (state.bankHoliday) rows.push(['Additional Sunday / BH trauma (1/yr)', f3(r.bh)]);
     if (r.onCalls > 0) rows.push(['On calls', f3(r.onCalls)]);
     if (r.weekend > 0) {
       var weRota = state.weSessions > 0 ? (104 / state.weSessions).toFixed(1) : '—';
@@ -1676,7 +1659,7 @@ tfoot td.r { text-align: right; }
   function resetToDefaults() {
     state.base = 'alex'; state.cpd = 2.00; state.govLead = 1.00;
     state.extraSpa = 0.00; state.extraSpaName = '';
-    state.informatics = 1.50; state.onCalls = 0.00; state.patientAdmin = true;
+    state.informatics = 1.50; state.onCalls = 0.00; state.patientAdmin = false;
     state.icmForum = true; state.bankHoliday = true;
     state.weSessions = 10.4; state.alexPerCycle = 0;
     state.wrhPerCycle = 0; state.kidPerCycle = 0;

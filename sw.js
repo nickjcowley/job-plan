@@ -1,5 +1,5 @@
-const CACHE = 'job-plan-v3';
-const ASSETS = ['/job-plan/', '/job-plan/index.html', '/job-plan/itu-pa-calculator.html', '/job-plan/trauma-pa-calculator.html', '/job-plan/icon.svg', '/job-plan/manifest.json', '/job-plan/manifest-itu.json', '/job-plan/manifest-trauma.json'];
+const CACHE = 'job-plan-v4';
+const ASSETS = ['/job-plan/', '/job-plan/index.html', '/job-plan/itu-pa-calculator.html', '/job-plan/trauma-pa-calculator.html', '/job-plan/icon.svg', '/job-plan/icon-192.png', '/job-plan/icon-512.png', '/job-plan/manifest.json', '/job-plan/manifest-itu.json', '/job-plan/manifest-trauma.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
   self.skipWaiting();
